@@ -1,0 +1,8 @@
+@import "./App.css";
+@import "tailwindcss";
+#three-container {
+  background-color: transparent !important;
+}
+
+
+/* Profile Card */

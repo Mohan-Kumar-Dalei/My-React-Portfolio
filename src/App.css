@@ -1,0 +1,25 @@
+/* Add custom font-face for Hamiltone-Demo */
+@font-face {
+  font-family: "Hamiltone";
+  src: url("/Font/Hamiltone-Demo.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Utility class for custom font */
+.font-hamiltone {
+  font-family: "Hamiltone", sans-serif;
+}
+
+
+@font-face {
+  font-family: "Peristiwa";
+  src: url("/Font/Peristiwa.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Utility class for custom font */
+.font-Peristiwa {
+  font-family: "Peristiwa", sans-serif;
+}
