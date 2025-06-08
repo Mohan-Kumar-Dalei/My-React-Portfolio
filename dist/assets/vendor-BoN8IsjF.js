@@ -1424,12 +1424,12 @@ function p0(e) {
     f
   );
 }
-var m0 = new cd(),
-  fu = p0(),
-  hd = Pi.createContext({
+var m0 = new cd
+  , fu = p0()
+  , hd = Pi.createContext({
     shouldForwardProp: void 0,
     styleSheet: m0,
-    stylis: fu,
+    stylis: fu
   });
 hd.Consumer;
 Pi.createContext(void 0);
