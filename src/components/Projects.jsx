@@ -61,7 +61,7 @@ const Projects = () => {
         {
             title: 'Project Alpha',
             description: 'A modern web application portfolio built with React and Node.js.',
-            image: '/images/portfolio-landing.png', // लोकल इमेज का पाथ
+            image: '/portfolio-landing.png', // लोकल इमेज का पाथ
             technologies: ['React', 'Node.js', 'GSAP'],
             link: '#',
         },

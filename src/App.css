@@ -1,7 +1,7 @@
 /* Add custom font-face for Hamiltone-Demo */
 @font-face {
   font-family: "Hamiltone";
-  src: url("/Font/Hamiltone-Demo.otf") format("opentype");
+  src: url("/Hamiltone-Demo.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
@@ -14,7 +14,7 @@
 
 @font-face {
   font-family: "Peristiwa";
-  src: url("/Font/Peristiwa.otf") format("opentype");
+  src: url("/Peristiwa.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }

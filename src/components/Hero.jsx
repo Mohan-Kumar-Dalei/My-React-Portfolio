@@ -375,7 +375,7 @@ const Hero = () => {
                     >
                         <img
                             ref={heroImageRef}
-                            src="/images/hero.png"
+                            src="/hero.png"
                             alt="Mohan Kumar Dalei"
                             className="absolute inset-0 w-full h-full object-cover shadow-2xl border-2 border-[#FFD600]"
                         />

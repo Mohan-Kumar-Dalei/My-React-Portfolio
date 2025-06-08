@@ -493,7 +493,7 @@ function About() {
             </div>
           </div>
           <div className="flex justify-center items-center" id="profileCard">
-            <ProfileCard avatarUrl="/images/profile.jpg" />
+            <ProfileCard avatarUrl="/profile.jpg" />
           </div>
         </div>
 
