@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "clean": "rimraf dist",
+    "build:clean": "npm run clean && npm run build"
   },
   "dependencies": {
     "@lottiefiles/dotlottie-react": "^0.14.0",
@@ -44,6 +46,8 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^16.0.0",
+    "rimraf": "^6.0.1",
+    "rollup-plugin-visualizer": "^6.0.3",
     "vite": "^6.3.5",
     "vite-plugin-glsl": "^1.4.2"
   }
