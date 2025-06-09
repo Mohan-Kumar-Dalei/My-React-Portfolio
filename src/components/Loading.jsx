@@ -164,6 +164,22 @@ const StyledWrapper = styled.div`
       transform: translateY(0rem);
     }
   }
+  /* Responsive fix for small screens */
+  @media (max-width: 400px) {
+    .loader {
+      gap: 0.1rem;
+    }
+    .letter {
+      height: 1.7rem;
+      width: 1.1rem;
+    }
+    .i {
+      margin-inline: 2px;
+    }
+    .loader span {
+      letter-spacing: -2.2rem;
+    }
+  }
 `;
 
 export default Loader;

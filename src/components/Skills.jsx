@@ -33,12 +33,14 @@ const skills = [
     { name: 'Figma', icon: <SiFigma className="text-5xl text-purple-400" /> },
 ];
 
+const isLargeScreen = () => window.innerWidth >= 1024;
+
 export default function Skills() {
     const gridRef = useRef(null);
     const observerRef = useRef(null);
 
-
     useLayoutEffect(() => {
+        if (!isLargeScreen()) return; // Disable GSAP animation on mobile/tablet
         let ctx;
         let observer;
         let triggered = false;
@@ -97,7 +99,9 @@ export default function Skills() {
                 My <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 to-amber-500">Skills</span>
             </h2>
 
-            <div ref={gridRef} className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 sm:gap-8 md:gap-10 max-w-7xl mx-auto relative z-10">
+            <div ref={gridRef} className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 sm:gap-8 md:gap-10 max-w-7xl mx-auto relative z-10
+              xs:grid-cols-1 xs:gap-4 xs:px-2
+            ">
                 {skills.map(({ name, icon }, index) => (
                     <div
                         key={`skill-${name}-${index}`}

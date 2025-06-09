@@ -13,6 +13,7 @@ import './gsapConfig';
 import useSectionAnimations from "./hooks/useSectionAnimations";
 import SmoothScroll from "./components/SmoothScroll";
 import String from "./components/String";
+import SectionSmoothScroll from "./components/SectionSmoothScroll";
 
 
 const App = () => {
@@ -49,14 +50,16 @@ const App = () => {
         <SmoothScroll>
           {!isLoading && <Hero />}
           <String />
-          <AboutMe />
-          <String />
-          <Skills />
-          <String />
-          <Projects />
-          <String />
-          <Contact />
-          <Footer />
+          <SectionSmoothScroll>
+            <AboutMe />
+            <String />
+            <Skills />
+            <String />
+            <Projects />
+            <String />
+            <Contact />
+            <Footer />
+          </SectionSmoothScroll>
         </SmoothScroll>
         <ScrollToTop />
       </div>

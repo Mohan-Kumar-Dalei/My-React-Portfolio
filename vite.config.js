@@ -2,10 +2,11 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig({
-  plugins: [
-    react(),
-    // visualizer plugin ko temporarily hata diya hai testing ke liye
-  ],
+  plugins: [react()],
+  server: {
+    host: '0.0.0.0', // 👈 Mobile access enabled
+    port: 5173       // 👈 Default Vite port (can be changed)
+  },
   optimizeDeps: {
     include: ['react-type-animation'],
     esbuildOptions: {
@@ -15,7 +16,7 @@ export default defineConfig({
     },
   },
   build: {
-    target: 'es2015',          // Compatibility ke liye
+    target: 'es2015',
     chunkSizeWarningLimit: 1000,
     commonjsOptions: {
       include: [/node_modules/],
@@ -24,7 +25,7 @@ export default defineConfig({
       output: {
         manualChunks(id) {
           if (id.includes('node_modules')) {
-            return 'vendor';  // Simple single vendor chunk for better load order
+            return 'vendor';
           }
         },
       },
@@ -32,7 +33,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '.glsl': '.glsl?raw',    // GLSL raw import support
+      '.glsl': '.glsl?raw',
     },
   },
   assetsInclude: ['**/*.glsl'],

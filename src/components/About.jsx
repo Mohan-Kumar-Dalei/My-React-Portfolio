@@ -282,6 +282,9 @@ const ProfileCard = ({ avatarUrl }) => {
 };
 
 // --- Main About Component (FIXED) ---
+// Only enable GSAP scroll reveal animations on large screens
+const isLargeScreen = () => window.innerWidth >= 1024;
+
 function About() {
   const sectionRef = useRef(null);
   const contactInfo = [
@@ -326,6 +329,7 @@ function About() {
   ];
 
   useLayoutEffect(() => {
+    if (!isLargeScreen()) return; // Disable GSAP scroll triggers on mobile/tablet
     if (!window.gsap || !window.ScrollTrigger) return;
     // Intersection Observer to delay ScrollTrigger setup until About section is near viewport
     const section = document.getElementById("about");
@@ -437,24 +441,23 @@ function About() {
     <section
       id="about"
       ref={sectionRef}
-      className="relative min-h-screen w-full bg-[#111111] text-gray-300 font-sans py-20 sm:py-24 lg:py-32">
-      <div className="absolute top-0 left-0 w-full h-full opacity-30">
-        <div className="absolute top-[10%] left-[10%] w-[500px] h-[500px] bg-[#800000]/20 rounded-full filter blur-3xl animate-blob"></div>
-        <div className="absolute top-[20%] right-[5%] w-[400px] h-[400px] bg-[#D4AF37]/15 rounded-full filter blur-3xl animate-blob animation-delay-2000"></div>
-        <div className="absolute bottom-[10%] left-[25%] w-[300px] h-[300px] bg-[#800000]/10 rounded-full filter blur-3xl animate-blob animation-delay-4000"></div>
+      className="relative min-h-screen w-full max-w-full overflow-x-hidden bg-[#111111] text-gray-300 font-sans py-10 sm:py-16 md:py-20 lg:py-32">
+      <div className="absolute top-0 left-0 w-full h-full opacity-30 overflow-x-hidden pointer-events-none">
+        <div className="absolute top-[10%] left-[5%] w-[80vw] max-w-[500px] h-[40vw] max-h-[500px] bg-[#800000]/20 rounded-full filter blur-3xl animate-blob"></div>
+        <div className="absolute top-[20%] right-[5%] w-[60vw] max-w-[400px] h-[30vw] max-h-[400px] bg-[#D4AF37]/15 rounded-full filter blur-3xl animate-blob animation-delay-2000"></div>
+        <div className="absolute bottom-[10%] left-[10%] w-[50vw] max-w-[300px] h-[25vw] max-h-[300px] bg-[#800000]/10 rounded-full filter blur-3xl animate-blob animation-delay-4000"></div>
       </div>
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
-        <div className="main-content-grid grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16 items-center">
+      <div className="relative max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8 z-10">
+        <div className="main-content-grid grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12 lg:gap-16 items-center">
           <div
-            className="lg:col-span-2 space-y-6 -ml-18 md:-ml-0 relative"
+            className="lg:col-span-2 space-y-6 md:-ml-0 relative w-full max-w-full overflow-x-hidden"
             id="AboutMe">
-            <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-300 via-yellow-500 to-amber-500">
                 About Me
               </span>
             </h1>
-            <div className="text-lg md:text-xl text-gray-300 leading-relaxed space-y-4 px-5 md:px-0 w-[95%] md:w-[90%]">
+            <div className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed space-y-4 px-2 md:px-5 lg:px-0 w-full max-w-full">
               <p>
                 Hi 👋, my name is{" "}
                 <span className="font-semibold text-white">

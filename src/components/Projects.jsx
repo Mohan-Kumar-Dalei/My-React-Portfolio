@@ -40,7 +40,7 @@ const Projects = () => {
                 grabCursor: true,
                 centeredSlides: true,
                 slidesPerView: 'auto',
-                loop: false, 
+                loop: false,
                 navigation: false,
                 pagination: { clickable: true },
                 coverflowEffect: {
@@ -63,7 +63,7 @@ const Projects = () => {
             description: 'A modern web application portfolio built with React and Node.js.',
             image: '/portfolio-landing.png', // लोकल इमेज का पाथ
             technologies: ['React', 'Node.js', 'GSAP'],
-            link: '#',
+            link: 'https://portfolio-code-with-love-mohan.netlify.app/',
         },
         {
             title: 'Project Beta',
