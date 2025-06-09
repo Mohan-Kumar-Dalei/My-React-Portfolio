@@ -64,17 +64,6 @@ export default function Navbar({ isLoading }) {
         })
     };
 
-    useEffect(() => {
-        if (isOpen) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = '';
-        }
-        return () => {
-            document.body.style.overflow = '';
-        };
-    }, [isOpen]);
-
     return (
         <>
             {/* Top Navbar */}
@@ -82,14 +71,13 @@ export default function Navbar({ isLoading }) {
                 initial={{ y: -100 }}
                 animate={{ y: 0 }}
                 transition={{ duration: 0.5 }}
-                className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-black/40 backdrop-blur-md shadow-lg' : 'bg-transparent backdrop-blur-md'}`}
-                style={{ WebkitBackdropFilter: 'blur(16px)', backdropFilter: 'blur(16px)' }}
+                className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled || window.innerWidth < 1024 ? 'bg-black/40 backdrop-blur-md shadow-lg' : 'bg-transparent'}`}
             >
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex items-center justify-between h-16">
                         <AnimatedText
                             text="Mohan Portfolio"
-                            className="font-hamiltone h-15 w-56 text-center tracking-wide flex items-center justify-baseline font-extrabold text-2xl hover:tracking-wider transition-all cursor-pointer bg-gradient-to-r from-purple-300 to-yellow-500 bg-clip-text text-transparent"
+                            className="font-hamiltone h-15 w-56 text-center tracking-wide flex items-center justify-center font-extrabold text-2xl hover:tracking-wider transition-all cursor-pointer bg-gradient-to-r from-purple-300 to-yellow-500 bg-clip-text text-transparent"
                         />
 
                         {/* Desktop Menu using React Scroll Link */}
@@ -146,20 +134,17 @@ export default function Navbar({ isLoading }) {
                 {/* Mobile Menu using React Scroll Link */}
                 <AnimatePresence>
                     {isOpen && (
-                        <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} transition={{ duration: 0.3 }} className="md:hidden bg-black/40 backdrop-blur-md overflow-hidden" style={{ WebkitBackdropFilter: 'blur(16px)', backdropFilter: 'blur(16px)' }}>
+                        <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} transition={{ duration: 0.3 }} className="md:hidden bg-black/40 backdrop-blur-md overflow-hidden">
                             <div className="flex flex-col px-4 py-4 space-y-3">
                                 {menuItems.map((section, index) => (
                                     <motion.div key={section} initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.3, delay: index * 0.1 }}>
-                                        <Link
-                                            to={section}
-                                            smooth={true}
-                                            duration={800}
-                                            offset={-100}
+                                        <a
+                                            href={`#${section}`}
                                             onClick={() => setIsOpen(false)}
                                             className="block text-white text-base font-medium hover:text-yellow-500 capitalize transition-colors cursor-pointer"
                                         >
                                             <AnimatedText text={section} className="capitalize" />
-                                        </Link>
+                                        </a>
                                     </motion.div>
                                 ))}
                             </div>
@@ -187,6 +172,9 @@ export default function Navbar({ isLoading }) {
                                         duration={500}
                                         offset={-150}
                                         className="flex items-center justify-center w-12 h-12 rounded-full cursor-pointer transition-all duration-300 text-gray-300 hover:bg-white/10 hover:text-yellow-400"
+                                        tabIndex={0}
+                                        role="button"
+                                        aria-label={`Scroll to ${item.name}`}
                                     >
                                         {item.icon}
                                     </Link>
