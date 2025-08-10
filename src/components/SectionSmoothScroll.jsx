@@ -17,7 +17,7 @@ const SectionSmoothScroll = ({ children }) => {
             smoother = ScrollSmoother.create({
                 wrapper: wrapperRef.current,
                 content: contentRef.current,
-                smooth: 2.5,
+                smooth: 0.9,
                 effects: true,
                 normalizeScroll: true,
                 ignoreMobileResize: true,

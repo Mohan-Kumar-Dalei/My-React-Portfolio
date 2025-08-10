@@ -90,7 +90,7 @@ const StyledWrapper = styled.div`
 
 const ResumeButton = () => (
     <a
-        href="https://drive.google.com/file/d/1tKB59gNLc1dUHKwKMWRVbqpE23wdE-To/view?usp=sharing"
+        href="https://drive.google.com/file/d/1qUC0CfV-ffjjI5_NvDUPUYjpfb8jAdv7/view?usp=sharing"
         download
         target='__blank'
         title="Download Resume (CV)"

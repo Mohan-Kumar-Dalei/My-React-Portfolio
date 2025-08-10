@@ -21,7 +21,7 @@ const SmoothScroll = ({ children }) => {
             smoother = ScrollSmoother.create({
                 wrapper: "#smooth-wrapper",
                 content: "#smooth-content",
-                smooth: 2.5, // higher = smoother
+                smooth: 0.9, // higher = smoother
                 effects: true,
                 // Consider adding normalizeScroll: true if you still see issues,
                 // but it can sometimes interfere with native scrolling.
