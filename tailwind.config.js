@@ -6,5 +6,6 @@ export const theme = {
       grotesk: ['Space Grotesk', 'sans-serif'],
       signature: ['Pacifico', 'cursive'],
     },
+    
   },
 };

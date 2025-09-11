@@ -4,8 +4,8 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   server: {
-    host: '0.0.0.0', // 👈 Mobile access enabled
-    port: 5173       // 👈 Default Vite port (can be changed)
+    host: '0.0.0.0',
+    port: 5173
   },
   optimizeDeps: {
     include: ['react-type-animation'],

@@ -13,7 +13,6 @@ import './gsapConfig';
 import useSectionAnimations from "./hooks/useSectionAnimations";
 import SmoothScroll from "./components/SmoothScroll";
 import String from "./components/String";
-import SectionSmoothScroll from "./components/SectionSmoothScroll";
 
 
 const App = () => {
@@ -28,7 +27,7 @@ const App = () => {
   useSectionAnimations(!isLoading);
 
   return (
-    <div className="bg-[#0E0E0E] min-h-screen relative">
+    <div className="bg-[#0E0E0E] min-h-screen relative ">
       {/* Fullscreen Overlay Loader */}
       {isLoading && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#0E0E0E]">
@@ -43,23 +42,21 @@ const App = () => {
 
       {/* Main Content (hidden until loader ends) */}
       <div
-        className={`transition-all duration-1000 ease-in-out ${isLoading ? "opacity-0 blur-sm pointer-events-none" : "opacity-100 blur-none"
+        className={`transition-all duration-1000 ease-in-out  ${isLoading ? "opacity-0 blur-sm pointer-events-none" : "opacity-100 blur-none"
           }`}
       >
         <Navbar isLoading={isLoading} />
         <SmoothScroll>
           {!isLoading && <Hero />}
+          <String style={{ background: "linear-gradient(to bottom ,#0E0E0E,#d9a7040e, #d9a7040e)" }} />
+          <AboutMe />
           <String />
-          <SectionSmoothScroll>
-            <AboutMe />
-            <String />
-            <Skills />
-            <String />
-            <Projects />
-            <String />
-            <Contact />
-            <Footer />
-          </SectionSmoothScroll>
+          <Skills />1
+          <String />
+          <Projects />
+          <String />
+          <Contact />
+          <Footer />
         </SmoothScroll>
         <ScrollToTop />
       </div>

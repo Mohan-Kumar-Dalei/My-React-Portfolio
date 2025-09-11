@@ -2,7 +2,7 @@
 
 Welcome to my personal developer portfolio! Built using **React**, **Node.js**, and powered by stunning animations from **GSAP** and **Three.js**, this is a showcase of who I am, what I do, and what I can build.
 
-![Banner](../public/portfolio-landing.png)
+![Banner](https://ik.imagekit.io/ny6yinyut/Screenshot%202025-09-12%20005254.png?updatedAt=1757618614370)
 
 ---
 

@@ -10,11 +10,9 @@ import {
     SiMongodb,
     SiExpress,
     SiNodedotjs,
-    SiMysql,
-    SiJenkins, // Reverted to SiJenkins for Java icon to resolve import error
     SiGithub,
-    SiFigma,
 } from 'react-icons/si';
+import { FaJava } from 'react-icons/fa';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -27,10 +25,8 @@ const skills = [
     { name: 'Node.js', icon: <SiNodedotjs className="text-5xl text-lime-500" /> },
     { name: 'Express.js', icon: <SiExpress className="text-5xl text-gray-400" /> },
     { name: 'MongoDB', icon: <SiMongodb className="text-5xl text-green-500" /> },
-    { name: 'MySQL', icon: <SiMysql className="text-5xl text-blue-700" /> },
-    { name: 'Java', icon: <SiJenkins className="text-5xl text-red-500" /> }, // Using SiJenkins as Java substitute
+    { name: 'Java', icon: <FaJava className="text-5xl text-red-500" /> },
     { name: 'Git/GitHub', icon: <SiGithub className="text-5xl text-white" /> },
-    { name: 'Figma', icon: <SiFigma className="text-5xl text-purple-400" /> },
 ];
 
 const isLargeScreen = () => window.innerWidth >= 1024;

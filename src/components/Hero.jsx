@@ -1,6 +1,8 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import BackgroundBeams from './BackgroundBeams'; // Assumes BackgroundBeams component is available
+// import BackgroundBeams from './BackgroundBeams';
+import LensFlareBackground from '../ApexUI-Kit/LensFlareBackground/LensFlareBackground'
 import gsap from 'gsap'; // Assumes GSAP library is available
 import { Power3 } from 'gsap/all'; // Import Power3 ease from GSAP
 import styled from 'styled-components';
@@ -247,18 +249,11 @@ const Hero = () => {
     }, []);
 
     return (
-        <section id="home" className="reveal-section relative w-full min-h-screen h-auto overflow-hidden text-[#F3E9ED] lg:mt-0 font-grotesk bg-[#361421] flex flex-col justify-around">
-            {/* Responsive BackgroundBeams wrapper */}
-            <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
-                <BackgroundBeams
-                    beamWidth={2}
-                    beamHeight={15}
-                    beamNumber={12}
-                    lightColor="#FFD600"
-                    speed={2}
-                    noiseIntensity={2.5}
-                    scale={0.2}
-                    rotation={0}
+        <section id="home" className=" reveal-section relative w-full min-h-screen h-auto overflow-hidden text-[#F3E9ED] lg:mt-0 font-grotesk bg-[#111111] flex flex-col justify-around">
+            {/* Responsive LensFlareBackground wrapper */}
+            <div className="absolute flex items-start justify-start inset-0 pointer-events-none z-0">
+                <LensFlareBackground
+                    flareColor='#a65f00'
                 />
             </div>
             <div className="relative z-10 flex flex-col lg:flex-row items-center justify-around p-2 xs:p-4 sm:p-8 gap-4 xs:gap-6 sm:gap-12 w-full h-full">
@@ -351,34 +346,41 @@ const Hero = () => {
                 </motion.div>
 
                 {/* Right Content: Irregular Blob with Image Mask and Parallax - FINAL RESPONSIVE HEIGHTS */}
-                <div ref={rightImageContainerRef} className="hidden lg:flex w-full lg:w-1/2 h-[160px] sm:h-[400px] md:h-[500px] lg:h-[400px] xl:h-[600px] items-center justify-center relative mt-6 lg:-mt-">
-                    {/* Irregular Blob Background (Larger) - Responsive sizes */}
-                    <div
-                        ref={parallaxBgRef}
-                        className="absolute w-[120px] h-[120px] sm:w-[240px] sm:h-[240px] md:w-[320px] md:h-[320px] lg:w-[400px] lg:h-[400px] xl:w-[480px] xl:h-[480px]
-                                   aspect-square bg-[#ffd50041] filter blur-3xl opacity-75 z-0 border-[2px] border-[#FFD600]"
-                        style={{
-                            top: '50%',
-                            left: '50%',
-                            transform: 'translate(-50%, -50%)',
-                            clipPath: 'polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)'
-                        }}
-                    ></div>
+                <div ref={rightImageContainerRef} className="hidden lg:flex w-full lg:w-1/2 h-[160px] sm:h-[400px] md:h-[500px] lg:h-[400px] xl:h-[600px] items-center justify-center relative mt-6 lg:-mt-0">
 
-                    {/* Image Container with Mask (Slightly Smaller) - Responsive sizes */}
-                    <div
-                        className="relative z-10 w-[80px] h-[80px] sm:w-[200px] sm:h-[200px] md:w-[260px] md:h-[260px] lg:w-[320px] lg:h-[320px] xl:w-[400px] xl:h-[400px]
-                                   aspect-square border-[1px] border-white border-opacity-30"
-                        style={{
-                            clipPath: 'polygon(35% 5%, 65% 5%, 95% 35%, 95% 65%, 65% 95%, 35% 95%, 5% 70%, 5% 30%)'
-                        }}
-                    >
-                        <img
-                            ref={heroImageRef}
-                            src="/hero.png"
-                            alt="Mohan Kumar Dalei"
-                            className="absolute inset-0 w-full h-full object-cover shadow-2xl border-2 border-[#FFD600]"
-                        />
+                    {/* SVG Definitions for the clip-path */}
+                    <svg className="absolute w-0 h-0">
+                        <defs>
+                            <clipPath id="liquid-clip" clipPathUnits="objectBoundingBox">
+                                <path d="M0.5,0 C0.8,0,1,0.2,1,0.5 C1,0.8,0.8,1,0.5,1 C0.2,1,0,0.8,0,0.5 C0,0.2,0.2,0,0.5,0 Z" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+
+                    {/* Main container for the morphing image */}
+                    <div className="relative w-[120px] h-[120px] sm:w-[240px] sm:h-[240px] md:w-[320px] md:h-[320px] lg:w-[400px] lg:h-[400px] xl:w-[480px] xl:h-[480px]
+                    group">
+
+                        {/* Optional: Background Glow that follows the blob shape */}
+                        <div
+                            ref={parallaxBgRef}
+                            className="absolute inset-0 bg-gradient-to-br from-[#d9a7040e] to-amber-900 opacity-60 blur-2xl
+                       transition-transform duration-500 group-hover:scale-110"
+                            style={{ clipPath: 'url(#liquid-clip)' }}
+                        ></div>
+
+                        {/* The Image with the liquid mask */}
+                        <div
+                            className="w-full h-full"
+                            style={{ clipPath: 'url(#liquid-clip)' }}
+                        >
+                            <img
+                                ref={heroImageRef}
+                                src="/hero.png"
+                                alt="Mohan Kumar Dalei"
+                                className="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+                            />
+                        </div>
                     </div>
                 </div>
             </div>

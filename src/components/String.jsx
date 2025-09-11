@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import gsap from "gsap";
 
-export default function String() {
+export default function String({ style }) {
     useEffect(() => {
         const stringEls = document.querySelectorAll(".string");
         if (!stringEls.length) return;
@@ -45,7 +45,7 @@ export default function String() {
     }, []);
 
     return (
-        <div className="string flex justify-center items-center w-full" style={{ minHeight: 100, cursor: "pointer", background: "#111111" }}>
+        <div className={`string flex justify-center items-center w-full `} style={style} >
             <svg
                 width="100%"
                 height="80"

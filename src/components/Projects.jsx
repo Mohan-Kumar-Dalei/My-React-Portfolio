@@ -55,38 +55,35 @@ const Projects = () => {
             swiperEl.initialize();
         }
     }, []);
-
-    // **Projects Data:** अब 'image' फील्ड या तो लोकल पाथ होगा या Lottie URL
     const projects = [
         {
-            title: 'Project Alpha',
+            title: 'Animated Portfolio',
             description: 'A modern web application portfolio built with React and Node.js.',
-            image: '/portfolio-landing.png', // लोकल इमेज का पाथ
+            image: 'https://ik.imagekit.io/ny6yinyut/Screenshot%202025-09-12%20005254.png?updatedAt=1757618614370',
             technologies: ['React', 'Node.js', 'GSAP'],
-            link: 'https://portfolio-code-with-love-mohan.netlify.app/',
+            link: 'https://mohankumardalei-portfolio.netlify.app/',
         },
         {
-            title: 'Project Beta',
-            description: 'An e-commerce platform with real-time inventory management. Coming Soon...',
-            image: 'https://lottie.host/4339ed6a-7bf7-4827-8083-b313e78aedee/MiN8YAGYMh.lottie', // Lottie URL
-            technologies: ['React', 'Node.js', 'MongoDB', 'Socket.io'],
-            link: '#',
+            title: 'ApexUI-Component Library',
+            description: '⚡Modern UI, Redefined A powerful React UI library built for speed, style, and smooth interactions.',
+            image: 'https://ik.imagekit.io/ny6yinyut/Screenshot%202025-09-10%20124230.png?updatedAt=1757609141572',
+            technologies: ['React', 'Node.js', 'tailwind css', 'gsap', 'framer', 'three.js'],
+            link: 'https://apex-ui.in',
         },
         {
-            title: 'Project Gamma',
-            description: 'A social media dashboard with analytics and reporting features. Coming Soon...',
-            image: 'https://lottie.host/4339ed6a-7bf7-4827-8083-b313e78aedee/MiN8YAGYMh.lottie', // एक और Lottie URL
-            technologies: ['React', 'D3.js', 'Express'],
-            link: '#',
+            title: 'Apex OS',
+            description: 'Apex OS is a web-based desktop operating system clone built using HTML, CSS, JavaScript, Barba.js, GSAP, and Tailwind CSS',
+            image: 'https://ik.imagekit.io/ny6yinyut/bg-1.png?updatedAt=1757609620406',
+            technologies: ['Html', 'Css', 'tailwind css', 'gsap',],
+            link: 'https://apex-os-code-with-love-mohan.netlify.app/',
         },
-        // आप यहाँ और प्रोजेक्ट्स जोड़ सकते हैं
-        // {
-        //     title: 'Project Delta',
-        //     description: 'A project with a local image.',
-        //     image: '/images/your-local-image.jpg',
-        //     technologies: ['HTML', 'CSS', 'JS'],
-        //     link: '#',
-        // },
+        {
+            title: 'AI-Powered-Captioner',
+            description: 'An AI caption generator built with the MERN stack (React, Express, MongoDB), Tailwind CSS, and the Gemini API.',
+            image: 'https://ik.imagekit.io/ny6yinyut/Screenshot%202025-09-11%20142148.png?updatedAt=1757611376240',
+            technologies: ['React', 'tailwind css', 'node', 'express', 'mongodb', 'gemini-api'],
+            link: 'https://ai-powered-captioner-frontend.vercel.app/',
+        },
     ];
 
     // Helper function to check if the image is a Lottie URL
@@ -114,7 +111,7 @@ const Projects = () => {
                         <swiper-slide key={`project-${index}`} style={{ width: '350px', height: 'auto' }}>
                             <div
                                 className="bg-gradient-to-br from-[#1a090d]/60 to-[#2a1a1f]/60 backdrop-blur-md
-                                       border border-yellow-900/40 shadow-xl rounded-xl overflow-hidden flex flex-col h-full w-full"
+                                    border border-yellow-900/40 shadow-xl rounded-xl overflow-hidden flex flex-col h-full w-full"
                             >
                                 <div className="relative h-56 w-full flex-shrink-0 flex items-center justify-center">
                                     {/* Conditional Rendering: Lottie या Image */}

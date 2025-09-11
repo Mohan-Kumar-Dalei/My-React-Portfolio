@@ -12,13 +12,17 @@
     "build:clean": "npm run clean && npm run build"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^7.0.1",
+    "@fortawesome/free-solid-svg-icons": "^7.0.1",
+    "@fortawesome/react-fontawesome": "^3.0.2",
     "@lottiefiles/dotlottie-react": "^0.14.0",
     "@react-three/drei": "^10.1.2",
     "@react-three/fiber": "^9.1.2",
     "@tailwindcss/postcss": "^4.1.8",
+    "apex-ui-kit": "^2.0.7",
     "autoprefixer": "^10.4.21",
     "controlkit": "^0.1.9",
-    "framer-motion": "^12.15.0",
+    "framer-motion": "^12.23.12",
     "gsap": "^3.13.0",
     "lucide-react": "^0.511.0",
     "motion": "^12.15.0",

@@ -441,7 +441,7 @@ function About() {
     <section
       id="about"
       ref={sectionRef}
-      className="relative min-h-screen w-full max-w-full overflow-x-hidden bg-[#111111] text-gray-300 font-sans py-10 sm:py-16 md:py-20 lg:py-32">
+      className="relative min-h-screen w-full max-w-full overflow-x-hidden bg-gradient-to-b from-[#d9a7040e] to-[#111111] text-gray-300 font-sans py-10 sm:py-16 md:py-20 lg:py-32">
       <div className="absolute top-0 left-0 w-full h-full opacity-30 overflow-x-hidden pointer-events-none">
         <div className="absolute top-[10%] left-[5%] w-[80vw] max-w-[500px] h-[40vw] max-h-[500px] bg-[#800000]/20 rounded-full filter blur-3xl animate-blob"></div>
         <div className="absolute top-[20%] right-[5%] w-[60vw] max-w-[400px] h-[30vw] max-h-[400px] bg-[#D4AF37]/15 rounded-full filter blur-3xl animate-blob animation-delay-2000"></div>
