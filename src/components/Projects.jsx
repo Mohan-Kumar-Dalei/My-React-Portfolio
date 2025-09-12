@@ -145,6 +145,7 @@ const Projects = () => {
                                     </div>
                                     <a
                                         href={project.link}
+                                        target='_blank'
                                         className="inline-block mt-auto w-full text-center px-6 py-3 bg-gradient-to-r from-[#1a090d] to-[#2a1a1f] rounded-lg text-[#FFD600] font-semibold hover:opacity-90 transition-opacity border border-[#FFD600]"
                                     >
                                         View Project

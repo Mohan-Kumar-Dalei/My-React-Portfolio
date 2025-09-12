@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-// import BackgroundBeams from './BackgroundBeams';
+import BackgroundBeams from './BackgroundBeams';
 import LensFlareBackground from '../ApexUI-Kit/LensFlareBackground/LensFlareBackground'
 import gsap from 'gsap'; // Assumes GSAP library is available
 import { Power3 } from 'gsap/all'; // Import Power3 ease from GSAP
@@ -116,7 +116,13 @@ const Hero = () => {
     const [isTyping, setIsTyping] = useState(true);
     const [typeTextIdx, setTypeTextIdx] = useState(0);
     const typeRef = useRef(null);
-
+    const [isSmallScreen, setIsSmallScreen] = useState(typeof window !== 'undefined' ? window.innerWidth <= 500 : false);
+    useEffect(() => {
+        const onResize = () => setIsSmallScreen(window.innerWidth <= 700);
+        onResize();
+        window.addEventListener('resize', onResize);
+        return () => window.removeEventListener('resize', onResize);
+    }, []);
     useEffect(() => {
         // GSAP animations for text elements
         if (nameRef.current) {
@@ -249,12 +255,19 @@ const Hero = () => {
     }, []);
 
     return (
-        <section id="home" className=" reveal-section relative w-full min-h-screen h-auto overflow-hidden text-[#F3E9ED] lg:mt-0 font-grotesk bg-[#111111] flex flex-col justify-around">
+        <section id="home" className=" reveal-section relative w-full min-h-screen h-auto overflow-hidden text-[#F3E9ED] -mt-5 font-grotesk bg-[#111111] flex flex-col justify-around">
             {/* Responsive LensFlareBackground wrapper */}
             <div className="absolute flex items-start justify-start inset-0 pointer-events-none z-0">
-                <LensFlareBackground
-                    flareColor='#a65f00'
-                />
+                {isSmallScreen ? (
+                    <BackgroundBeams 
+                       lightColor='#a65f00'
+                       rotation={40}
+                    />
+                ) : (
+                    <LensFlareBackground
+                        flareColor='#a65f00'
+                    />
+                )}
             </div>
             <div className="relative z-10 flex flex-col lg:flex-row items-center justify-around p-2 xs:p-4 sm:p-8 gap-4 xs:gap-6 sm:gap-12 w-full h-full">
                 {/* Left Content: Personal information and action buttons */}

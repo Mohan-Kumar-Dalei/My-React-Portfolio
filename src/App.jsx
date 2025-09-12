@@ -48,7 +48,7 @@ const App = () => {
         <Navbar isLoading={isLoading} />
         <SmoothScroll>
           {!isLoading && <Hero />}
-          <String style={{ background: "linear-gradient(to bottom ,#0E0E0E,#d9a7040e, #d9a7040e)" }} />
+          <String style={{ background: "linear-gradient(to bottom ,#111111,#111111, #d9a7040e)" }} />
           <AboutMe />
           <String />
           <Skills />1
